@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Detail from "./pages/Detail";
 import Favorite from "./pages/Favorites";
-import Results from "./pages/Results";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path = "/showall" component= {ShowAll}/>
         <Route path = "/detail" component= {Detail}/>
         <Route path = "/favorite" component= {Favorite}/>
-        <Route path = "/results" component= {Results}/>
+        <Route path = "/searchresults" component= {SearchResults}/>
         <Route component = {Error404}/>
       </Switch>
       <Footer/>

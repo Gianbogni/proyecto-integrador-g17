@@ -1,15 +1,15 @@
-import React from 'react'
+import SearchForm from '../components/SearchForm/SearchForm'
+import React, { Component } from 'react'
 
-
-const Home = () => {
+export class Home extends Component {
+  render() {
     return (
-        <>
-            <h1> My App in React</h1>
-            <main>
-               <h2>Home de pelis</h2>
-            </main>
-        </>
+      <div>
+        <SearchForm history={this.props.history}/>
+        <h2>Home de pelis</h2>
+      </div>
     )
+  }
 }
 
 export default Home
