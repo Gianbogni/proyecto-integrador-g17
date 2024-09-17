@@ -1,15 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-
-const Detail = () => {
+export class Detail extends Component {
+  render() {
     return (
-        <>
-            <h1> My App in React</h1>
-            <main>
-               <h2>Detalle</h2>
-            </main>
-        </>
+      <div>
+        <h1>hola </h1>
+      </div>
     )
+  }
 }
 
-export default Detail;
+export default Detail
