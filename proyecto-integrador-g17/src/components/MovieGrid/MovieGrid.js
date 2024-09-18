@@ -10,7 +10,8 @@ class MovieGrid extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/movie/popular", options)
+    const api =this.props.api 
+    fetch(api, options)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -24,10 +25,12 @@ class MovieGrid extends Component {
   }
   render() {
     return (
+      
       <div>
         {this.state.movies.length > 0 ? (
-          this.state.movies.map((movie, index) => (
+          this.state.movies.slice(0, 5).map((movie, index) => (
             <MovieCard movie={movie} key={index} />
+            
           ))
         ) : (
           <p>Cargando...</p>

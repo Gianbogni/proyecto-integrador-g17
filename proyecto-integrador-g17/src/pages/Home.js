@@ -6,8 +6,10 @@ export class Home extends Component {
     return (
       <div>
         <SearchForm history={this.props.history}/>
-        <h2>Home de pelis</h2>
-        <MovieGrid/>
+        <h2>Populares</h2>
+        <MovieGrid api={"https://api.themoviedb.org/3/movie/popular"} link={"/popular"}/>
+        <h2>Estrenos</h2>
+        <MovieGrid api={"https://api.themoviedb.org/3/movie/upcoming"} link={"/upcoming"}/>
       </div>
     )
   }

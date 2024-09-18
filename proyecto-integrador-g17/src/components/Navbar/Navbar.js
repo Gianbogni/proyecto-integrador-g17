@@ -7,8 +7,8 @@ const Navbar = () => {
            <ul className="main-nav">
            <img src="/img/Logo.jpg" alt="Logo" className='site-logo' />
                <li className="navbartexto"><Link  exact to="/"> Home</Link></li>
-               <li className="navbartexto"><Link to="/favoritos">Favoritos</Link></li>
-               <li className="navbartexto"><Link to="/ver-todas">Ver Todas</Link></li>
+               <li className="navbartexto"><Link to="/favorite">Favoritos</Link></li>
+               <li className="navbartexto"><Link to="/showall">Ver Todas</Link></li>
                   
            </ul>
         
