@@ -1,0 +1,52 @@
+.character-card {
+    width: 260px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .imagendemoviecard {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .character-card h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .character-card p {
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .botondescripcion {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .botondescripcion:hover {
+    background-color: #0056b3;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .character-card section {
+    margin-top: 10px;
+  }
+  

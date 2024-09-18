@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { options } from '../../options';
+import "./MovieGrid.css"
 
 class MovieGrid extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class MovieGrid extends Component {
   render() {
     return (
       
-      <div>
+      <div className="grillapelis">
         {this.state.movies.length > 0 ? (
           this.state.movies.slice(0, 5).map((movie, index) => (
             <MovieCard movie={movie} key={index} />
