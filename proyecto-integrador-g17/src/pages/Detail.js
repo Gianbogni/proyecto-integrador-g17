@@ -1,17 +1,13 @@
-import React, { Component } from 'react'
+import React from "react";
+import DetailS from "../components/DetailS/DetailS";
 
-export class Detail extends Component {
-
-  render() {
-
-    const id = this.props.match.params.id;
-    const movie = this.props.movies.find((movie) => movie.id === Number(id))
-    return (
-      <div>
-        <h1>{movie.title} </h1>
-      </div>
-    )
-  }
+function Detail(props){
+  return(
+    <React.Fragment>
+      <DetailS  id={props.match.params.id}/>
+    </React.Fragment>
+  )
 }
 
-export default Detail
+
+export default Detail;
