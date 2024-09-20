@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Detail from "./pages/Detail";
 import Favorite from "./pages/Favorites";
-import SearchResults from "./pages/SearchResults";
+import SearchResults from "./pages/SearchResults/SearchResults";
 
 function App() {
   return (

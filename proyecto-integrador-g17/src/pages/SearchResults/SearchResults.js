@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { options } from '../options';
+import { options } from '../../options';
+import "./SearchResults.css"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -37,6 +39,11 @@ class SearchResults extends Component {
                 />
               <h3>{movie.title}</h3>
               <p>{movie.vote_average}</p>
+              <section>
+                <Link to={`/detail/id/${movie.id}`}><p>Ver detalle</p></Link>
+                {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
+                </section>
+              
             </li>
           ))}
         </ul>
