@@ -8,7 +8,7 @@
     text-align: center;
 }
 
-.imageDetails {
+.image-details {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
@@ -41,15 +41,4 @@ p {
 
 .botondescripcion-detail:hover {
     background-color: #555555;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-    margin-top: 15px;
-    color: #a0a0a0;
-    font-size: 1.1rem;
 }

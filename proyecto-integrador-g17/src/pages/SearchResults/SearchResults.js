@@ -29,9 +29,9 @@ class SearchResults extends Component {
     
     if (this.state.results.length > 0) {
       content = (
-        <ul>
+        <ul className='ul-results'>
           {this.state.results.map((movie) => (
-            <li key={movie.id}>
+            <li key={movie.id} className='li-results'>
               <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt={movie.title}

@@ -30,7 +30,7 @@ export class DetailS extends Component {
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt={title}
-          className="imageDetails"
+          className="image-details"
         />
         <h2>{title}</h2>
         <p>Rating: {vote_average}</p>
