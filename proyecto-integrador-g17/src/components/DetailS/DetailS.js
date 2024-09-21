@@ -24,8 +24,11 @@ export class DetailS extends Component {
 
 
   render() {
-    const { title, poster_path, vote_average, genre_ids, overview } = this.state.movie;
+    const { title, poster_path, vote_average, genre_ids, overview, runtime, release_date} = this.state.movie;
+    console.log(this.state.movie);
+    
     return (
+        
       <article className='character-detail'>
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -33,8 +36,10 @@ export class DetailS extends Component {
           className="image-details"
         />
         <h2>{title}</h2>
+        <p>{release_date}</p>
         <p>Rating: {vote_average}</p>
         <p>Genres: {genre_ids}</p>
+        <p>{runtime} min</p>
         <p>Sinopsis: {overview}</p>
         <section>
           {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}

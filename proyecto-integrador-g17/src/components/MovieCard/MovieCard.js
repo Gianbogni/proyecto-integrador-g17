@@ -20,11 +20,12 @@ class MovieCard extends Component {
         const { title, poster_path, vote_average, id, genre_ids, overview } = this.props.movie;
         return (
             <article className='character-card'>
-                <img
+                 <Link to={`/detail/id/${id}`}><img
                     src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                     alt={title}
                     className="imagendemoviecard"
-                />
+                /></Link>
+                
                 <h2>{title}</h2>
                 <p>Rating: {vote_average}</p>
                 <p>Genres: {genre_ids}</p>

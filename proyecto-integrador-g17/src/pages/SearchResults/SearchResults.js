@@ -25,25 +25,25 @@ class SearchResults extends Component {
   }
 
   render() {
-   let content =""
-    
+    let content = ""
+
     if (this.state.results.length > 0) {
       content = (
         <ul className='ul-results'>
           {this.state.results.map((movie) => (
             <li key={movie.id} className='li-results'>
-              <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                    className="movie-poster"
-                />
+              <Link to={`/detail/id/${movie.id}`}><img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className="imagendemoviecard"
+              /></Link>
               <h3>{movie.title}</h3>
               <p>{movie.vote_average}</p>
               <section>
                 <Link to={`/detail/id/${movie.id}`}><p>Ver detalle</p></Link>
                 {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
-                </section>
-              
+              </section>
+
             </li>
           ))}
         </ul>
@@ -51,7 +51,7 @@ class SearchResults extends Component {
     } else {
       content = <p>No se encontraron resultados.</p>;
     }
-  
+
     return (
       <div>
         <h1>Resultados de {this.props.location.state.query}</h1>
