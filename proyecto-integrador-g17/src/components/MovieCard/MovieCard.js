@@ -7,13 +7,53 @@ class MovieCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            extra: false
+            extra: false,
         };
     }
     handleShowextra() {
         this.setState({
             extra: !this.state.extra
         });
+    }
+
+    componentDidMount(){
+        const storage = localStorage.getItem('favoritos')
+        if (storage !== null){
+            const parsedArray = JSON.parse(storage)
+            const estaenFavoritos = parsedArray.includes(this.props.movie.id)
+            this.setState({
+                esFavorito: estaenFavoritos
+            })
+        }
+    }
+
+    agregarFavorito(){
+        const storage = localStorage.getItem('favoritos')
+        if (storage !== null){
+            const parsedArray = JSON.parse(storage)
+            parsedArray.push(this.props.movie.id)
+            const stringArray = JSON.stringify(parsedArray)
+            localStorage.setItem('favoritos', stringArray)
+        }
+        else {
+            const primerMovie = [this.props.movie.id]
+            const stringArray = JSON.stringify(primerMovie)
+            localStorage.setItem('favoritos', stringArray)
+        }
+        this.setState({
+            esFavorito: true
+        })
+    }
+
+    sacarFavorito(){
+        const storage = localStorage.getItem('favoritos')
+        const parsedArray = JSON.parse(storage)
+        const favoritosRestantes = parsedArray.filter(id => id !== this.props.movie.id)
+        const stringArray = JSON.stringify(favoritosRestantes)
+        localStorage.setItem ('favoritos', stringArray)
+        this.setState({
+            esFavorito: false
+        })
     }
 
     render() {
@@ -43,7 +83,7 @@ class MovieCard extends Component {
                 <Link to={`/detail/id/${id}`}><p>Ver detalle</p></Link>
                 {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
                 </section>
-                <button  className="botondescripcion"> Va a ir favoritos </button>
+                <button className="botondescripcion" onClick={()=>!this.state.esFavorito ? this.agregarFavorito(): this.sacarFavorito() } > {!this.state.esFavorito ? "Agregar a favoritos": "Quitar de favoritos"}</button>
             </article>
 
 

@@ -5,7 +5,7 @@ import ShowAll from "./pages/ShowAll";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Detail from "./pages/Detail";
-import Favorite from "./pages/Favorites";
+import Favorites from "./pages/Favorites/Favorites";
 import SearchResults from "./pages/SearchResults/SearchResults";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path = "/" exact component = {Home}/>
         <Route path = "/showall" component= {ShowAll}/>
         <Route path = "/detail/id/:id" component= {Detail} />
-        <Route path = "/favorite" component= {Favorite}/>
+        <Route path = "/favorite" component= {Favorites}/>
         <Route path = "/searchresults" component= {SearchResults}/>
         <Route component = {Error404}/>
       </Switch>
