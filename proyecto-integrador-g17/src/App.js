@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import Favorites from "./pages/Favorites/Favorites";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import Popular from "./pages/Popular";
+import Estreno from "./pages/Estreno";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route path = "/" exact component = {Home}/>
         <Route path = "/popular" component= {Popular}/>
+        <Route path = "/estreno" component= {Estreno}/>
         <Route path = "/detail/id/:id" component= {Detail} />
         <Route path = "/favorite" component= {Favorites}/>
         <Route path = "/searchresults" component= {SearchResults}/>

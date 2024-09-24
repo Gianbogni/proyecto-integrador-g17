@@ -36,10 +36,10 @@ export class Home extends Component {
       <SearchForm history={this.props.history} />
       <h1>Populares</h1>
       <MovieGrid movies={this.state.popularMovies.slice(0, 5)} />
-      <Link to={`/showall`}><p>Ver más Populares</p></Link>
+      <Link to={`/popular`}><p>Ver más Populares</p></Link>
       <h1>Estrenos</h1>
       <MovieGrid movies={this.state.upcomingMovies.slice(0, 5)} />
-      <Link to={`/showall`}><p>Ver más Estrenos</p></Link>
+      <Link to={`/estreno`}><p>Ver más Estrenos</p></Link>
     </div>
     );
   }
