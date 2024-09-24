@@ -7,15 +7,18 @@ h1 {
     text-align: center;
   }
   
-h2 {
+.h2-home {
     font-size: 2rem;
     font-weight: semi-bold;
-    color: #555;
+    color: #3e3b3b;
     margin-bottom: 0.75rem;
     text-align: center;  
   }
 
   .p-home {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     font-size: 1.2rem;
     color: #444;
     text-decoration: none;
@@ -23,10 +26,7 @@ h2 {
     padding: 0.5rem 0.5rem;
     border-radius: 8px;
     transition: background-color 0.1s ease, color 0.1s ease;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-   
+    width: fit-content; 
   }
   
   .p-home:hover {

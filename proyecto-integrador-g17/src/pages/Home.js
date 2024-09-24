@@ -35,10 +35,10 @@ export class Home extends Component {
       <div>
         <h1>Peliculas HandomMovies</h1>
       <SearchForm history={this.props.history} />
-      <h2>Populares</h2>
+      <h2 className='h2-home'>Populares</h2>
       <MovieGrid movies={this.state.popularMovies.slice(0, 5)} />
       <Link to={`/popular`}><p className='p-home'>Ver más Populares</p></Link>
-      <h2>Estrenos</h2>
+      <h2 className='h2-home'>Estrenos</h2>
       <MovieGrid movies={this.state.upcomingMovies.slice(0, 5)} />
       <Link to={`/estreno`}><p className='p-home'>Ver más Estrenos</p></Link>
     </div>
