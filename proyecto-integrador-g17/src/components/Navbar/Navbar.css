@@ -2,17 +2,17 @@
 
 
 .site-logo{
-    width: 12%;
+    width: 6%;
     margin-left: 20px;
+    border-radius: 70px;
  }
  nav{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding:  20px;
     background-color: black;
-    font-size: 40px;
+    font-size: 30px;
    
  }
 .navbartexto a{
@@ -40,17 +40,3 @@
  }
  
  
- /* /* .main-nav li:first-child {
-    font-weight: bold;
- }
- 
- 
- .user img {
-    width: 30px;
-    border-radius: 90%;
-    margin-left: 10px;
- }
- 
- 
- h1,h2 {
-  */
