@@ -51,8 +51,9 @@ export class Estreno extends Component {
     return (
       <div>
         <h1>Estrenos</h1>
-        <input type="text" onChange={(e)=> this.handleFilterChange(e)} value={this.state.filterValues}/>
+        <div className='search-form'><input type="text" onChange={(e)=> this.handleFilterChange(e)} value={this.state.filterValues}/>
         <button onClick={()=>this.handleResetFilter()}>Reset</button>
+        </div>
         <MovieGrid movies = {this.state.filteredMovies}/>
         <button onClick={()=> this.handleLoadMore()}>Mostar mas</button>
       </div>

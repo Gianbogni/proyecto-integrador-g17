@@ -33,13 +33,14 @@ export class Home extends Component {
   render() {
     return (
       <div>
+        <h1>Peliculas HandomMovies</h1>
       <SearchForm history={this.props.history} />
-      <h1>Populares</h1>
+      <h2>Populares</h2>
       <MovieGrid movies={this.state.popularMovies.slice(0, 5)} />
-      <Link to={`/popular`}><p>Ver más Populares</p></Link>
-      <h1>Estrenos</h1>
+      <Link to={`/popular`}><p className='p-home'>Ver más Populares</p></Link>
+      <h2>Estrenos</h2>
       <MovieGrid movies={this.state.upcomingMovies.slice(0, 5)} />
-      <Link to={`/estreno`}><p>Ver más Estrenos</p></Link>
+      <Link to={`/estreno`}><p className='p-home'>Ver más Estrenos</p></Link>
     </div>
     );
   }
