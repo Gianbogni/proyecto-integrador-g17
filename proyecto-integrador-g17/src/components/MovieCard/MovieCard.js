@@ -81,7 +81,6 @@ class MovieCard extends Component {
                 </section>
                 <section>
                 <Link to={`/detail/id/${id}`}><p>Ver detalle</p></Link>
-                {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
                 </section>
                 <button className="botondescripcion" onClick={()=>!this.state.esFavorito ? this.agregarFavorito(): this.sacarFavorito() } > {!this.state.esFavorito ? "Agregar a favoritos": "Quitar de favoritos"}</button>
             </article>
