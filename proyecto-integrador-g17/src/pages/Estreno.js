@@ -13,7 +13,7 @@ export class Estreno extends Component {
         }
     }
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage}`, options)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${this.state.actualPage}`, options)
         .then(response => response.json())
         .then(data => this.setState({
             movies: data.results,
@@ -31,7 +31,7 @@ export class Estreno extends Component {
     }
 
     handleLoadMore(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage}`, options)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${this.state.actualPage}`, options)
         .then(response => response.json())
         .then(data => this.setState({
             movies: this.state.movies.concat(data.results),
