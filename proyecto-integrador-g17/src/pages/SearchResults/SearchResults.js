@@ -2,32 +2,44 @@ import React, { Component } from 'react'
 import { options } from '../../options';
 import "./SearchResults.css"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Gif from '../../components/Gif/Gif';
 
 class SearchResults extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      results: []
+      results: [],
+      loading: true
     }
   }
 
   componentDidMount() {
+    this.setState({
+      loading: true
+    })
     const { query } = this.props.location.state;
     //destructuring de la query
-    
+
     if (query) {
       fetch(`https://api.themoviedb.org/3/search/movie?query=${query}`, options)
         .then(response => response.json())
-        .then(data => this.setState({ results: data.results }))
+        .then(data => this.setState({
+          results: data.results,
+          loading: false
+        }))
         .catch(error => console.error('Error', error));
     }
     //usando el endpoint de search de la api, agarramos la query que haya escrito el usuario y buscamos si existe 
   }
 
   render() {
+
     let content = ""
 
-    if (this.state.results.length > 0) {
+    if (this.state.loading) { 
+      content = <Gif/>
+    
+    } else if (this.state.results.length > 0) {
       content = (
         <ul className='ul-results'>
           {this.state.results.map((movie) => (
@@ -41,7 +53,6 @@ class SearchResults extends Component {
               <p>{movie.vote_average}</p>
               <section>
                 <Link to={`/detail/id/${movie.id}`}><p>Ver detalle</p></Link>
-                {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
               </section>
 
             </li>
@@ -53,11 +64,11 @@ class SearchResults extends Component {
     }
 
     return (
-      <div>
-        <h1>Resultados de {this.props.location.state.query}</h1>
-        {content}
-      </div>
-    );
+        <div>
+          <h1>Resultados de {this.props.location.state.query}</h1>
+          {content}
+        </div>
+      );
   }
 }
 

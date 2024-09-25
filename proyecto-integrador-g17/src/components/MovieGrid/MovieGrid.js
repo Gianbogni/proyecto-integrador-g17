@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieGrid.css";
-
+import Gif from "../Gif/Gif";
 class MovieGrid extends Component {
   render() {
     const { movies } = this.props; 
@@ -13,7 +13,7 @@ class MovieGrid extends Component {
             <MovieCard movie={movie} key={index} />
           ))
         ) : (
-          <p>Cargando...</p>
+          <Gif/>
         )}
       </div>
     );

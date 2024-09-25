@@ -55,7 +55,7 @@ export class Estreno extends Component {
         <button onClick={()=>this.handleResetFilter()}>Reset</button>
         </div>
         <MovieGrid movies = {this.state.filteredMovies}/>
-        <button onClick={()=> this.handleLoadMore()}>Mostar mas</button>
+        <button className="botondescripcion" onClick={()=> this.handleLoadMore()}>Mostar mas</button>
       </div>
     )
   }

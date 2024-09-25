@@ -3,9 +3,9 @@ import DetailS from "../components/DetailS/DetailS";
 
 function Detail(props){
   return(
-    <React.Fragment>
+    <div>
       <DetailS  id={props.match.params.id}/>
-    </React.Fragment>
+    </div>
   )
 }
 

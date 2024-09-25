@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { options } from '../../options';
 import './DetailS.css'
-//import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Gif from '../Gif/Gif';
+
+
 export class DetailS extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
       movie: [],
-      id: this.props.id
+      id: this.props.id,
+      loading: true
       //este id que se pasa, viene del detail, lo pasamos al this.state y se convierte en un estado
     }
   }
@@ -16,7 +19,7 @@ export class DetailS extends Component {
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?`, options)
       .then(response => response.json())
-      .then(data => this.setState({ movie: data }))
+      .then(data => this.setState({ movie: data, loading: false }))
       .catch(error => console.error('Error', error));
   };
   agregarFavorito(){
@@ -53,8 +56,10 @@ sacarFavorito(){
 
   render() {
     const { title, poster_path, vote_average, genre_ids, overview, runtime, release_date} = this.state.movie;
-    console.log(this.state.movie);
     
+    if (this.state.loading) {
+      return <Gif />; 
+    }
     return (
         
       <article className='character-detail'>
@@ -69,9 +74,6 @@ sacarFavorito(){
         <p>Genres: {genre_ids}</p>
         <p>{runtime} min</p>
         <p>Sinopsis: {overview}</p>
-        <section>
-          {/* <Link to={this.props.link}><h4>Ver todas</h4></Link> */}
-        </section>
         <button className="botondescripcion-detail" onClick={()=>!this.state.esFavorito ? this.agregarFavorito(): this.sacarFavorito() } > {!this.state.esFavorito ? "Agregar a favoritos": "Quitar de favoritos"}</button>
       </article>
 
