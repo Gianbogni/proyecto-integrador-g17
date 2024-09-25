@@ -12,7 +12,6 @@ class MovieCard extends Component {
         this.state = {
             extra: false,
             genres:[]
-            //hacemos un this.state de genres 
         };
     }
     handleShowextra() {
@@ -23,7 +22,6 @@ class MovieCard extends Component {
 
 
     componentDidMount(){
-        //fetch de la api de generos
         fetch(`https://api.themoviedb.org/3/genre/movie/list`, options)
       .then(response => response.json())
       .then(data => this.setState({ genres: data.genres }));
@@ -77,12 +75,11 @@ class MovieCard extends Component {
           return genre ? genre.name : null;
         }).filter(name => name !== null).join(' ');
       }
-      //creamos la funcion que matchea los generos con los ids de las pelis, de esta manera nos fijamos tmb que si es null que no lo agregue
-      //finalmente le ponemos al filter un .join para que queden los generos separados y no todos juntos
+    
     render() {
         const { title, poster_path, vote_average, id, genre_ids, overview } = this.props.movie;
         const nombreGenero = this.nombreGeneros(genre_ids)
-        //al crear la funcion nombreGenero y usarla podemos convertir los genre-ids en nombres de genero
+
         return (
             <article className='character-card'>
                  <Link to={`/detail/id/${id}`}><img
@@ -92,7 +89,7 @@ class MovieCard extends Component {
                 /></Link>
                
                 <h2>{title}</h2>
-                <p>Rating: {vote_average}</p>
+                <p>Rating: {vote_average.toFixed(1)}</p>
                 <p>Genres: {nombreGenero}</p>
                
                 <button

@@ -50,7 +50,7 @@ class SearchResults extends Component {
                 className="imagendemoviecard"
               /></Link>
               <h3>{movie.title}</h3>
-              <p>{movie.vote_average}</p>
+              <p>{movie.vote_average.toFixed(1)}</p>
               <section>
                 <Link to={`/detail/id/${movie.id}`}><p>Ver detalle</p></Link>
               </section>
