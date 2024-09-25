@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { options } from '../../options';
-import './DetailS.css'
+import './DetailCard.css'
 import Gif from '../Gif/Gif';
 
 
-export class DetailS extends Component {
+export class DetailCard extends Component {
 
   constructor(props) {
     super(props)
@@ -19,7 +19,9 @@ export class DetailS extends Component {
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?`, options)
       .then(response => response.json())
-      .then(data => this.setState({ movie: data, loading: false }))
+      .then(data => {
+        console.log(data);
+        this.setState({ movie: data, loading: false })})
       .catch(error => console.error('Error', error));
   };
   agregarFavorito(){
@@ -51,15 +53,12 @@ sacarFavorito(){
     })
 }
 
-
-
-
   render() {
-    const { title, poster_path, vote_average, genre_ids, overview, runtime, release_date} = this.state.movie;
-    
+    const { title, poster_path, vote_average, genres=[], overview, runtime, release_date} = this.state.movie;
     if (this.state.loading) {
       return <Gif />; 
     }
+    const nombreGenero = genres.map(genre => genre.name).join(', ');
     return (
         
       <article className='character-detail'>
@@ -70,8 +69,8 @@ sacarFavorito(){
         />
         <h2>{title}</h2>
         <p>{release_date}</p>
-        <p>Rating: {vote_average}</p>
-        <p>Genres: {genre_ids}</p>
+        <p>Rating: {vote_average.toFixed(1)}</p>
+        <p>Genres: {nombreGenero}</p>
         <p>{runtime} min</p>
         <p>Sinopsis: {overview}</p>
         <button className="botondescripcion-detail" onClick={()=>!this.state.esFavorito ? this.agregarFavorito(): this.sacarFavorito() } > {!this.state.esFavorito ? "Agregar a favoritos": "Quitar de favoritos"}</button>
@@ -83,4 +82,4 @@ sacarFavorito(){
   }
 }
 
-export default DetailS;
+export default DetailCard;

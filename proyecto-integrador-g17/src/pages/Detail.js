@@ -1,10 +1,10 @@
 import React from "react";
-import DetailS from "../components/DetailS/DetailS";
+import DetailCard from "../components/DetailCard/DetailCard";
 
 function Detail(props){
   return(
     <div>
-      <DetailS  id={props.match.params.id}/>
+      <DetailCard  id={props.match.params.id}/>
     </div>
   )
 }
