@@ -39,4 +39,27 @@
    
  }
  
- 
+ @media (max-width: 420px) {
+   nav {
+       flex-wrap: wrap;
+       justify-content: center;
+       font-size: 22px;
+   }
+
+   nav ul {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+   }
+
+   .navbartexto a {
+       padding: 15px;
+       font-size: 11px;
+   }
+
+   .main-nav li,
+   .user li {
+       margin: 10px;
+       text-align: center;
+   }
+}

@@ -68,3 +68,38 @@
 .character-cardF a:hover {
     text-decoration: underline;
 }
+@media (max-width: 420px) {
+    .favorites-grid {
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .character-cardF {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .character-cardF h2 {
+        font-size: 20px;
+    }
+
+    .character-cardF p {
+        font-size: 14px;
+    }
+
+    .botondescripcionF {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
