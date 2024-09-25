@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./MovieCard.css"
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { options } from "../../options";
+
+
 
 
 class MovieCard extends Component {
@@ -8,6 +11,8 @@ class MovieCard extends Component {
         super(props);
         this.state = {
             extra: false,
+            genres:[]
+            //hacemos un this.state de genres 
         };
     }
     handleShowextra() {
@@ -16,7 +21,14 @@ class MovieCard extends Component {
         });
     }
 
+
     componentDidMount(){
+        //fetch de la api de generos
+        fetch(`https://api.themoviedb.org/3/genre/movie/list`, options)
+      .then(response => response.json())
+      .then(data => this.setState({ genres: data.genres }));
+
+
         const storage = localStorage.getItem('favoritos')
         if (storage !== null){
             const parsedArray = JSON.parse(storage)
@@ -26,6 +38,7 @@ class MovieCard extends Component {
             })
         }
     }
+
 
     agregarFavorito(){
         const storage = localStorage.getItem('favoritos')
@@ -45,6 +58,7 @@ class MovieCard extends Component {
         })
     }
 
+
     sacarFavorito(){
         const storage = localStorage.getItem('favoritos')
         const parsedArray = JSON.parse(storage)
@@ -56,8 +70,19 @@ class MovieCard extends Component {
         })
     }
 
+
+    nombreGeneros(idGenero) {
+        return idGenero.map(id => {
+          const genre = this.state.genres.find(g => g.id === id);
+          return genre ? genre.name : null;
+        }).filter(name => name !== null).join(' ');
+      }
+      //creamos la funcion que matchea los generos con los ids de las pelis, de esta manera nos fijamos tmb que si es null que no lo agregue
+      //finalmente le ponemos al filter un .join para que queden los generos separados y no todos juntos
     render() {
         const { title, poster_path, vote_average, id, genre_ids, overview } = this.props.movie;
+        const nombreGenero = this.nombreGeneros(genre_ids)
+        //al crear la funcion nombreGenero y usarla podemos convertir los genre-ids en nombres de genero
         return (
             <article className='character-card'>
                  <Link to={`/detail/id/${id}`}><img
@@ -65,11 +90,11 @@ class MovieCard extends Component {
                     alt={title}
                     className="imagendemoviecard"
                 /></Link>
-                
+               
                 <h2>{title}</h2>
                 <p>Rating: {vote_average}</p>
-                <p>Genres: {genre_ids}</p>
-                
+                <p>Genres: {nombreGenero}</p>
+               
                 <button
                     className="botondescripcion"
                     onClick={() => this.handleShowextra()}
@@ -86,9 +111,15 @@ class MovieCard extends Component {
             </article>
 
 
+
+
         )
     }
 }
 
 
+
+
 export default MovieCard
+
+
